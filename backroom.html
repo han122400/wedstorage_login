@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>진실의 방</title>
+  </head>
+  <body style="text-align: center">
+    <h1>파라미터변조가 감지되었습니다!!!</h1>
+    <p id="timer">타이머</p>
+    <hr />
+    <img src="room.gif" alt="room" />
+    <br />
+    <script>
+      let time = 10 // 남은 시간 (초)
+      const timer = document.getElementById('timer')
+
+      const interval = setInterval(() => {
+        time--
+        timer.innerText = `${time}초 후에 메인 페이지로 이동합니다.`
+
+        if (time <= 0) {
+          clearInterval(interval) // 타이머 정지
+          alert('이상한짓 하지 마세요😡')
+          location.href = 'index.html' // 메인 페이지로 이동
+        }
+      }, 1000) // 1000ms = 1초
+    </script>
+  </body>
+</html>

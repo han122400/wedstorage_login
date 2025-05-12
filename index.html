@@ -4,16 +4,20 @@
     <meta charset="UTF-8" />
     <title>LocalStorage 로그인</title>
   </head>
-  <body>
-    <h2>👩‍💻 LocalStorage 로그인</h2>
-    
+  <body style="text-align: center">
+    <h2>LocalStorage 로그인</h2>
+    <img src="main.jpg" style="max-width: 300px; max-height: 300px" />
+    <p>비밀번호 해쉬 처리 & 파라미터변조 방지</p>
     <input type="text" id="id" placeholder="이름을 입력하세요" /><br />
-    <input type="text" id="pw" placeholder="비밀번호를 입력하세요" /><hr>
+    <input type="text" id="pw" placeholder="비밀번호를 입력하세요" />
+    <hr />
     <button onclick="login()">로그인</button>
     <button onclick="location.href='sign.html'">회원가입</button>
+    <button onclick="hash()">SHA-256 해쉬값 생성기</button>
 
     <p id="output">상태 메세지 출력</p>
 
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <title>내 페이지</title>
   </head>
-  <body>
+  <body style="text-align: center">
     <h1 id="username">안녕하세요</h1>
     <hr />
     <h2>로그인 성공!</h2>
-    <button onclick="location.href='index.html'">로그아웃</button>
+    <img src="chiikawa.jpg" style="max-width: 300px; max-height: 300px" />
+    <br />
+    <button onclick="logout()">로그아웃</button>
     <button onclick="out()">탈퇴하기</button>
 
     <script>
@@ -18,12 +20,23 @@
 
       document.getElementById('username').innerText = `${username}님 안녕하세요`
 
-      //쿠키로 받기
-      //const username = document.cookie.split('=')[1];
-      //document.getElementById('username').innerText = `${username}님 안녕하세요`;
+      //파라미터변조 방지,URL 조작 방지 (url바꿨을떄 현제 로그인한 유저와 다르면)
+      if (
+        !localStorage.getItem(username) ||
+        sessionStorage.getItem('login_user') != username
+      ) {
+        sessionStorage.removeItem('login_user')
+        location.href = 'backroom.html'
+      }
 
+      function logout() {
+        sessionStorage.removeItem('login_user')
+        alert('잘가~~~')
+        location.href = 'index.html'
+      }
       // 탈퇴하기
       function out() {
+        sessionStorage.removeItem('login_user')
         localStorage.removeItem(username)
         location.href = 'index.html'
         alert('탈퇴가 완료되었습니다.')

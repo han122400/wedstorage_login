@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <title>회원가입 페이지</title>
   </head>
-  <body>
+  <body style="text-align: center">
     <h2>회원가입 페이지</h2>
     <input type="text" id="id" placeholder="이름을 입력하세요" /><br />
-    <input type="text" id="pw" placeholder="비밀번호를 입력하세요" /><hr>
+    <input type="text" id="pw" placeholder="비밀번호를 입력하세요" />
+    <hr />
     <button onclick="sign()">회원가입</button>
     <button onclick="location.href='index.html'">로그인 페이지</button>
 
     <p id="output">상태 메세지 출력</p>
 
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
