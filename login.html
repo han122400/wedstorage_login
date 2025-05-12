@@ -6,25 +6,28 @@
   </head>
   <body>
     <h1 id="username">안녕하세요</h1>
-    <hr>
+    <hr />
     <h2>로그인 성공!</h2>
     <button onclick="location.href='index.html'">로그아웃</button>
+    <button onclick="out()">탈퇴하기</button>
+
     <script>
       // URL 쿼리 문자열에서 'name' 값을 읽어와 'username' 변수에 저장
-      const url = new URLSearchParams(window.location.search);
-      const username = url.get('name');
+      const url = new URLSearchParams(window.location.search)
+      const username = url.get('name')
 
-      document.getElementById('username').innerText = `${username}님 안녕하세요`;
+      document.getElementById('username').innerText = `${username}님 안녕하세요`
 
       //쿠키로 받기
       //const username = document.cookie.split('=')[1];
       //document.getElementById('username').innerText = `${username}님 안녕하세요`;
-      
+
+      // 탈퇴하기
+      function out() {
+        localStorage.removeItem(username)
+        location.href = 'index.html'
+        alert('탈퇴가 완료되었습니다.')
+      }
     </script>
   </body>
 </html>
-
-
-
-
-
